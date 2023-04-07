@@ -9,6 +9,11 @@ the concepts that would be covered in a undergrad course on computer science. No
 complicated algorithms have been used, the project works completely based on
 calculating forces and displacements over very small timesteps.
 
+## Build Instructions
+
+- Install the SDL2 library
+- Use CMake to build the project and run the executable
+
 ## Basic Usage
 
 - The only argument is the path to the JSON file to parse for input.
