@@ -6,17 +6,26 @@
 
 #include "vec2.h"
 #include "charge.h"
+#include "state.h"
+#include "loader.h"
 
 #define WIN_WIDTH	800
 #define WIN_HEIGHT	600
 
-vec2_t E = {0, 0};
-float B = 5;
-
-int main() {
+int main(int argc, char **argv) {
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
 
 	float SCALE = 10.0f;
+
+	char *fname;
+
+	if (argc > 1) {
+		fname = argv[1];
+	} else {
+		fname = "examples/simple.json";
+	}
+
+	struct state s = loader_from_file(fname);
 
 	SDL_Window *win = SDL_CreateWindow("Phy6", SDL_WINDOWPOS_UNDEFINED,
 			SDL_WINDOWPOS_UNDEFINED,
@@ -28,18 +37,6 @@ int main() {
 	SDL_Event event;
 
 	char quit = 0;
-
-	struct charge charges[3] = {
-		{(vec2_t){0, 0},   (vec2_t){0, 0},  (vec2_t){0, 0}, -1e-4 , 10.0f, 0},
-		{(vec2_t){0, 10},  (vec2_t){0, 0},  (vec2_t){0, 0}, 10e-4, 10.0f, 0},
-		{(vec2_t){0, -10}, (vec2_t){0, 0},  (vec2_t){0, 0}, -1e-4, 10.0f, 0}
-	};
-
-	struct charge *l = NULL;
-
-	for (int i= 0; i < 3; i++) {
-		l = charges_insert(l, &charges[i]);
-	}
 
 	unsigned long LAST = 0, NOW = SDL_GetPerformanceCounter();
 	double dt = 0;
@@ -56,13 +53,13 @@ int main() {
 			}
 		}
 
-		charges_update(l, dt, B, E);
+		charges_update(s.c, dt, s.B, s.E);
 
 		SDL_SetRenderDrawColor(ren, 20, 20, 20, 255);
 		
 		SDL_RenderClear(ren);
 
-		charges_draw(l, ren, SCALE);
+		charges_draw(s.c, ren, SCALE);
 
 		SDL_RenderPresent(ren);
 

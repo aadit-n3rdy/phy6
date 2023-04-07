@@ -10,7 +10,9 @@ find_package(SDL2_image REQUIRED)
  
 add_executable(phy6
 	src/main.c
-	src/charge.c)
+	src/charge.c
+	src/loader.c
+	src/cJSON.c)
 
 target_link_libraries(phy6 SDL2::Main SDL2::Image SDL2::GFX m)
 

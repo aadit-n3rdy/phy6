@@ -9,4 +9,13 @@ the concepts that would be covered in a undergrad course on computer science. No
 complicated algorithms have been used, the project works completely based on
 calculating forces and displacements over very small timesteps.
 
-## Feature list
+## Basic Usage
+
+- The only argument is the path to the JSON file to parse for input.
+- If no argument is given, the examples/simple.json is loaded
+
+## Libraries Used
+
+- SDL2 for graphics and windows excluding UI [https://github.com/libsdl-org/SDL](https://github.com/libsdl-org/SDL)
+- cJSON for loading configs from files [https://github.com/DaveGamble/cJSON](https://github.com/DaveGamble/cJSON)
+
