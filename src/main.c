@@ -8,14 +8,20 @@
 #include "charge.h"
 #include "state.h"
 #include "loader.h"
+#include "view.h"
 
 #define WIN_WIDTH	800
 #define WIN_HEIGHT	600
 
 int main(int argc, char **argv) {
+
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
 
-	float SCALE = 10.0f;
+	float scale = 10.0f;
+
+	struct view cam;
+	cam.scale = 10;
+	cam.pos = (vec2_t){0, 0};
 
 	char *fname;
 
@@ -48,8 +54,31 @@ int main(int argc, char **argv) {
 		dt = (double)(NOW - LAST)/(double)SDL_GetPerformanceFrequency();
 
 		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT) {
-				quit = 1;
+			switch (event.type) {
+				case SDL_QUIT:
+					quit = 1;
+					break;
+				case SDL_KEYDOWN:
+					switch (event.key.keysym.scancode) {
+						case SDL_SCANCODE_DOWN:
+							cam.scale -= 1;
+							break;
+						case SDL_SCANCODE_UP:
+							cam.scale += 1;
+							break;
+						case SDL_SCANCODE_W:
+							cam.pos.y += cam.scale;
+							break;
+						case SDL_SCANCODE_A:
+							cam.pos.x -= cam.scale;
+							break;
+						case SDL_SCANCODE_S:
+							cam.pos.y -= cam.scale;
+							break;
+						case SDL_SCANCODE_D:
+							cam.pos.x += cam.scale;
+							break;
+					}
 			}
 		}
 
@@ -59,7 +88,7 @@ int main(int argc, char **argv) {
 		
 		SDL_RenderClear(ren);
 
-		charges_draw(s.c, ren, SCALE);
+		charges_draw(s.c, ren, cam);
 
 		SDL_RenderPresent(ren);
 

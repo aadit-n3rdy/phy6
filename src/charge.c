@@ -1,6 +1,7 @@
 #include "charge.h"
 
 #include "vec2.h"
+#include "view.h"
 
 static float sigmoid(float q) {
 	return 1.0f/(1.0f + expf(-q));
@@ -72,16 +73,18 @@ struct charge* charges_insert(struct charge *clist, struct charge *c) {
 	return c;
 }
 
-int charges_draw(struct charge *c, SDL_Renderer *ren, float scale) {
+int charges_draw(struct charge *c, SDL_Renderer *ren, struct view cam) {
 	unsigned int red;
 	int w, h;
+	vec2_t pos;
 	SDL_GetRendererOutputSize(ren, &w, &h);
 	w /= 2;
 	h /= 2;
 	while (c != NULL) {
 		red = 255.0f * sigmoid(c->q * 10000);
 		SDL_SetRenderDrawColor(ren, red, 128, 255 - red, 255);
-		draw_circle(ren, w + c->pos.x * scale, h - c->pos.y * scale, abs(c->m));
+		pos = vec2_add(c->pos, vec2_multip(cam.pos, -1));
+		draw_circle(ren, w + pos.x * cam.scale, h - pos.y * cam.scale, abs(c->m));
 		c = c->next;
 	}
 }

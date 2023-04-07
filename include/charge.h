@@ -2,6 +2,7 @@
 #define PHY6_CHARGE_H
 
 #include "vec2.h"
+#include "view.h"
 
 #include <SDL2/SDL.h>
 
@@ -26,6 +27,6 @@ int charges_update(struct charge *c, const float dt, const float B, const vec2_t
 
 struct charge* charges_insert(struct charge *clist, struct charge *c);
 
-int charges_draw(struct charge *c, SDL_Renderer *ren, float scale);
+int charges_draw(struct charge *c, SDL_Renderer *ren, struct view cam);
 
 #endif

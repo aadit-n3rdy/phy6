@@ -18,6 +18,7 @@ calculating forces and displacements over very small timesteps.
 
 - The only argument is the path to the JSON file to parse for input.
 - If no argument is given, the examples/simple.json is loaded
+- Use UP and DOWN arrow keys to zoom in and out, and WASD to move the camera around
 
 ## Libraries Used
 
