@@ -11,11 +11,11 @@ within a 2-dimensional plane
 
 ## Table of Contents
 - [Synopsis](#synopsis)
-- [Build Instructions](#Installation)
+- [Build Instructions](#build-instructions)
 - [Usage](#usage)
 - [License](#license)
 - [Libraries Used](#libraries-used)
-- [Credits and Contributors](#credits)
+- [Credits and Contributors](#credits-and-contributors)
 
 ## Synopsis
 
@@ -33,7 +33,7 @@ cmake -B build
 cmake --build build
 ```
 
-## Basic Usage
+## Usage
 
 - The only argument is the path to the JSON file to parse for input.
 - If no argument is given, the `examples/simple.json` is loaded.
