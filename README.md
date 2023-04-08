@@ -12,6 +12,7 @@ within a 2-dimensional plane
 - [Usage](#usage)
 - [License](#license)
 - [Libraries Used](#libraries-used)
+- [Demos](#demos)
 - [Credits and Contributors](#credits-and-contributors)
 
 ## Synopsis
@@ -43,6 +44,18 @@ cmake --build build
 - sdl2-cmake-modules, for easy loading of SDL2 libraries [https://gitlab.com/aminosbh/sdl2-cmake-modules](https://gitlab.com/aminosbh/sdl2-cmake-modules)
 - SDL_FontCache for text rendering [https://github.com/grimfang4/SDL_FontCache](https://github.com/grimfang4/SDL_FontCache)
 - VT323 Font by Peter Hull (obtained from Google Fonts) [https://fonts.google.com/specimen/VT323](https://fonts.google.com/specimen/VT323)
+
+## Demos
+
+Simple:
+![]()
+
+Cyclotron:
+![]()
+
+Circular motion under B:
+![]()
+
 
 ## Credits and Contributors
 
