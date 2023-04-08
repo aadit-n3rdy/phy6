@@ -3,11 +3,8 @@
 An open-source simulator electric charges and electric fields constrained 
 within a 2-dimensional plane
 
-[![](https://img.shields.io/static/v1?label=C-Programming&message=&color=blue&logo=github)](https://github.com/aadit-n3rdy/phy6)
-[![](https://img.shields.io/static/v1?label=CMake&color=blue&logo=github)](https://github.com/aadit-n3rdy/phy6)
-[![](https://img.shields.io/static/v1?label=AadityaE&message=phy6-electrostatic-simulator&color=blue&logo=github)](https://github.com/aadit-n3rdy/phy6)
-[![](https://img.shields.io/static/v1?label=AadityaE&message=phy6-electrostatic-simulator&color=blue&logo=github)](https://github.com/aadit-n3rdy/phy6)
-
+[![](https://img.shields.io/static/v1?label=C/Cpp&message=programming&color=black&logo=c)](https://en.wikipedia.org/wiki/C_(programming_language))
+[![](https://img.shields.io/static/v1?label=CMake&message=compilation&color=green&logo=cmake)](https://cmake.org/)
 
 ## Table of Contents
 - [Synopsis](#synopsis)
