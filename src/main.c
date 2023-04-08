@@ -4,6 +4,8 @@
 
 #include <SDL2/SDL.h>
 
+#include "SDL_FontCache.h"
+
 #include "vec2.h"
 #include "charge.h"
 #include "state.h"
@@ -16,8 +18,6 @@
 int main(int argc, char **argv) {
 
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
-
-	float scale = 10.0f;
 
 	struct view cam;
 	cam.scale = 10;
@@ -40,12 +40,21 @@ int main(int argc, char **argv) {
 
 	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, 0);
 
+	FC_Font *font = FC_CreateFont();
+	FC_LoadFont(font, ren, "fonts/VT323-Regular.ttf", 20, FC_MakeColor(255, 255, 255, 255),
+			TTF_STYLE_NORMAL);
+
+
 	SDL_Event event;
 
 	char quit = 0;
 
 	unsigned long LAST = 0, NOW = SDL_GetPerformanceCounter();
 	double dt = 0;
+
+	float scaleline_multip = 1.0f;
+
+	float cam_vel_multip = 5;
 
 	while (!quit) {
 		LAST = NOW;
@@ -61,24 +70,25 @@ int main(int argc, char **argv) {
 				case SDL_KEYDOWN:
 					switch (event.key.keysym.scancode) {
 						case SDL_SCANCODE_DOWN:
-							cam.scale -= 1;
+							cam.scale /= 1.5;
 							break;
 						case SDL_SCANCODE_UP:
-							cam.scale += 1;
+							cam.scale *= 1.5;
 							break;
 						case SDL_SCANCODE_W:
-							cam.pos.y += cam.scale;
+							cam.pos.y += 1 * cam_vel_multip;
 							break;
 						case SDL_SCANCODE_A:
-							cam.pos.x -= cam.scale;
+							cam.pos.x += -1 * cam_vel_multip;
 							break;
 						case SDL_SCANCODE_S:
-							cam.pos.y -= cam.scale;
+							cam.pos.y += -1 * cam_vel_multip;
 							break;
 						case SDL_SCANCODE_D:
-							cam.pos.x += cam.scale;
+							cam.pos.x += 1 * cam_vel_multip;
 							break;
 					}
+					break;
 			}
 		}
 
@@ -90,9 +100,17 @@ int main(int argc, char **argv) {
 
 		charges_draw(s.c, ren, cam);
 
+		FC_Draw(font, ren, WIN_WIDTH - 100, WIN_HEIGHT - 45, "Scale: 1m");
+
+		SDL_SetRenderDrawColor(ren, 255, 255, 255, 255);
+		
+		SDL_RenderDrawLine(ren, WIN_WIDTH - 20 - cam.scale, WIN_HEIGHT - 20, WIN_WIDTH - 20, WIN_HEIGHT - 20);
+
 		SDL_RenderPresent(ren);
 
 	}
+
+	FC_FreeFont(font);
 
 	SDL_DestroyWindow(win);
 

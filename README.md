@@ -40,6 +40,9 @@ cmake --build build
 
 - SDL2 for graphics and windows excluding UI [https://github.com/libsdl-org/SDL](https://github.com/libsdl-org/SDL)
 - cJSON for loading configs from files [https://github.com/DaveGamble/cJSON](https://github.com/DaveGamble/cJSON)
+- sdl2-cmake-modules, for easy loading of SDL2 libraries [https://gitlab.com/aminosbh/sdl2-cmake-modules](https://gitlab.com/aminosbh/sdl2-cmake-modules)
+- SDL_FontCache for text rendering [https://github.com/grimfang4/SDL_FontCache](https://github.com/grimfang4/SDL_FontCache)
+- VT323 Font by Peter Hull (obtained from Google Fonts) [https://fonts.google.com/specimen/VT323](https://fonts.google.com/specimen/VT323)
 
 ## Credits and Contributors
 
