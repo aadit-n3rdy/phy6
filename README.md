@@ -48,13 +48,13 @@ cmake --build build
 ## Demos
 
 Simple:
-![]()
+![](https://github.com/aadit-n3rdy/phy6/blob/master/gifs/simple.gif)
 
 Cyclotron:
-![]()
+![](https://github.com/aadit-n3rdy/phy6/blob/master/gifs/cyclotron.gif)
 
 Circular motion under B:
-![]()
+![](https://github.com/aadit-n3rdy/phy6/blob/master/gifs/b_only.gif)
 
 
 ## Credits and Contributors
