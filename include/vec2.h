@@ -26,4 +26,8 @@ inline static vec2_t vec2_cross(vec2_t a, float z) {
 	return (vec2_t) {a.y * z, -a.x * z};
 }
 
+inline static vec2_t vec2_normalised(vec2_t a) {
+	return vec2_multip(a, 1.0f/vec2_norm(a));
+}
+
 #endif

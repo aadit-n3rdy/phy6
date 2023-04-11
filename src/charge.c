@@ -7,7 +7,7 @@ static float sigmoid(float q) {
 	return 1.0f/(1.0f + expf(-q));
 }
 
-static void draw_circle(SDL_Renderer *ren, int x0, int y0, int radius)
+void draw_circle(SDL_Renderer *ren, int x0, int y0, int radius)
 {
     int x = radius-1;
     int y = 0;
@@ -77,14 +77,15 @@ int charges_draw(struct charge *c, SDL_Renderer *ren, struct view cam) {
 	unsigned int red;
 	int w, h;
 	vec2_t pos;
+	vec2_t screencord;
 	SDL_GetRendererOutputSize(ren, &w, &h);
-	w /= 2;
-	h /= 2;
 	while (c != NULL) {
 		red = 255.0f * sigmoid(c->q * 10000);
 		SDL_SetRenderDrawColor(ren, red, 128, 255 - red, 255);
 		pos = vec2_add(c->pos, vec2_multip(cam.pos, -1));
-		draw_circle(ren, w + pos.x * cam.scale, h - pos.y * cam.scale, abs(c->m));
+//		draw_circle(ren, w + pos.x * cam.scale, h - pos.y * cam.scale, abs(c->m));
+		screencord = world_to_screen(pos, cam);
+		draw_circle(ren, screencord.x, screencord.y, abs(c->m));
 		c = c->next;
 	}
 }

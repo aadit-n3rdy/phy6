@@ -29,4 +29,6 @@ struct charge* charges_insert(struct charge *clist, struct charge *c);
 
 int charges_draw(struct charge *c, SDL_Renderer *ren, struct view cam);
 
+void draw_circle(SDL_Renderer *ren, int x0, int y0, int radius);
+
 #endif

@@ -88,5 +88,8 @@ struct state loader_from_file(const char *fname) {
 	printf("B: %f\nE: [%f %f]\n", ret.B, ret.E.x, ret.E.y);
 end:
 	printf("\n");
+	cJSON_Delete(cj);
+	free(buf);
+	printf("Finished loading file %s\n", fname);
 	return ret;
 } 
