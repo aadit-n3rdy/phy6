@@ -36,6 +36,7 @@ cmake --build build
 - The only argument is the path to the JSON file to parse for input.
 - If no argument is given, the `examples/simple.json` is loaded.
 - Use UP and DOWN arrow keys to zoom in and out, and W-A-S-D to move the camera around
+- Refer the JSON files in the `examples/` folder for information on writing custom configurations.
 
 ## Libraries Used
 
