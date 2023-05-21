@@ -24,7 +24,13 @@ calculating forces and displacements over very small timesteps.
 
 ## Build Instructions
 
-- Install the SDL2 library
+- Clone the repository on your machine
+```
+git clone https://www.github.com/aadit-n3rdy/phy6   
+git submodule update --init --recursive
+```
+- Install the SDL2 library (refer 
+[libsdl.org Installation instructions](https://wiki.libsdl.org/SDL2/Installation))
 - Use CMake to build the project and run the executable
 ```cmake
 cmake -B build
