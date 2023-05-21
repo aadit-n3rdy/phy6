@@ -30,4 +30,12 @@ inline static vec2_t vec2_normalised(vec2_t a) {
 	return vec2_multip(a, 1.0f/vec2_norm(a));
 }
 
+inline static char vec2_float_iseq(float a, float b) {
+	return fabs(a-b) <= 0.001;
+}
+
+inline static char vec2_iseq(vec2_t a, vec2_t b) {
+	return vec2_float_iseq(a.x, b.x) && vec2_float_iseq(a.y, b.y);
+}
+
 #endif

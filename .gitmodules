@@ -4,3 +4,6 @@
 [submodule "deps/SDL_FontCache"]
 	path = deps/SDL_FontCache
 	url = https://github.com/grimfang4/SDL_FontCache
+[submodule "deps/googletest"]
+	path = deps/googletest
+	url = https://github.com/google/googletest
