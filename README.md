@@ -66,3 +66,4 @@ Circular motion under B:
 </a>
 
 All forms of contributions are welcomed!
+Do feel free to DM any of the contributors for ideas on this project or any other project.
